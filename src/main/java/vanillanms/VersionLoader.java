@@ -1,6 +1,7 @@
 package vanillanms;
 
 import java.io.File;
+import java.lang.reflect.Method;
 import java.net.URL;
 import java.net.URLClassLoader;
 
@@ -14,30 +15,22 @@ public class VersionLoader {
 			throw new VersionLoaderNotFoundException(file);
 		}
 		File refactoredFile = new File(file.getAbsolutePath() + ".refactored");
-		String versionPackaged = "net.minecraft.server." + version;
-		String entryPoint = "net.minecraft.server.MinecraftServer";
 		if(refactoredFile.exists()) {
-			loadJar(refactoredFile, entryPoint);
+			loadJar(refactoredFile);
 			return version;
 		}
 		JarJarUtils.prefixPackages(file, refactoredFile, "net.minecraft.server." + version);
-		loadJar(refactoredFile, versionPackaged + entryPoint, entryPoint);
+		loadJar(refactoredFile);
 		return version;
 	}
 
-	@SuppressWarnings({ "deprecation", "resource" })
-	private static void loadJar(File jarFile, String... entryPoints) throws Exception {
-		// todo: is this correct?
-		URLClassLoader classLoader = new URLClassLoader(new URL[] { jarFile.toURL() }, Thread.currentThread().getContextClassLoader());
-		for(int i = 0; i < entryPoints.length; i++) {
-			try {
-				classLoader.loadClass(entryPoints[i]);
-			} catch(Exception exception) {
-				if (i == (entryPoints.length - 1)) {
-					throw exception;
-				}
-			}
-		}
+	@SuppressWarnings({ "deprecation" })
+	private static void loadJar(File jarFile) throws Exception {
+		// todo: this seems hackish
+		URLClassLoader systemLoader = (URLClassLoader) ClassLoader.getSystemClassLoader();
+		Method addURLMethod = URLClassLoader.class.getDeclaredMethod("addURL", new Class<?>[] { URL.class });
+		addURLMethod.setAccessible(true);
+		addURLMethod.invoke(systemLoader, new Object[] { jarFile.toURL() });
 	}
 
 }

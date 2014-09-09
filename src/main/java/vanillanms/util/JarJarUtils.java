@@ -62,6 +62,7 @@ public class JarJarUtils {
 			}
 			String command = ("process " + rules.getPath() + " " + in.getPath() + " " + out.getPath());
 			Main.main(command.split(" "));
+			ZipUtils.deletePrefix(out, "META-INF");
 		} finally {
 			rules.delete();
 		}

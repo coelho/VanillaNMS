@@ -31,7 +31,7 @@ public class VanillaNMS extends JavaPlugin {
 			} catch(VersionLoaderNotFoundException exception) {
 				super.getLogger().warning(exception.getMessage());
 			} catch(Exception exception) {
-				super.getLogger().log(Level.SEVERE, "", exception);
+				super.getLogger().log(Level.SEVERE, "Error while loading " + file.getPath(), exception);
 			}
 		}
 		if (!loadedVersions.isEmpty()) {
