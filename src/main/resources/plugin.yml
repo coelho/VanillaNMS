@@ -1,0 +1,4 @@
+name: ${project.name}
+main: ${main.class}
+version: ${build.number}
+load: STARTUP
