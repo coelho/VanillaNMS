@@ -16,7 +16,7 @@ $ mvn clean install
 2. Place your Minecraft Server jar files in the folder.
 3. Start the server
 
-If you are a developer, the output jar that you will build against will be "plugins/VanillaNMS/<version>.jar.refactored"
+If you are a developer, the output jar that you will build against will be "plugins/VanillaNMS/\<version\>.jar.refactored"
 
 ### Supported Versions ###
 
