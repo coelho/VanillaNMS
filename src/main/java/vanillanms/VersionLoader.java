@@ -14,21 +14,30 @@ public class VersionLoader {
 			throw new VersionLoaderNotFoundException(file);
 		}
 		File refactoredFile = new File(file.getAbsolutePath() + ".refactored");
-		String entryPoint = "net.minecraft.server." + version + ".net.minecraft.server.MinecraftServer";
+		String versionPackaged = "net.minecraft.server." + version;
+		String entryPoint = "net.minecraft.server.MinecraftServer";
 		if(refactoredFile.exists()) {
 			loadJar(refactoredFile, entryPoint);
 			return version;
 		}
 		JarJarUtils.prefixPackages(file, refactoredFile, "net.minecraft.server." + version);
-		loadJar(refactoredFile, entryPoint);
+		loadJar(refactoredFile, versionPackaged + entryPoint, entryPoint);
 		return version;
 	}
 
 	@SuppressWarnings({ "deprecation", "resource" })
-	private static void loadJar(File jarFile, String entryPoint) throws Exception {
+	private static void loadJar(File jarFile, String... entryPoints) throws Exception {
 		// todo: is this correct?
 		URLClassLoader classLoader = new URLClassLoader(new URL[] { jarFile.toURL() }, Thread.currentThread().getContextClassLoader());
-		classLoader.loadClass(entryPoint);
+		for(int i = 0; i < entryPoints.length; i++) {
+			try {
+				classLoader.loadClass(entryPoints[i]);
+			} catch(Exception exception) {
+				if (i == (entryPoints.length - 1)) {
+					throw exception;
+				}
+			}
+		}
 	}
 
 }
