@@ -21,7 +21,7 @@ public class ChecksumUtils {
 	
 	public static String hex(byte[] hash) {
 		String hex = new BigInteger(1, hash).toString(16);
-		if(hex.length() == 39) {
+		while (hex.length() < 40) {
 			hex = "0" + hex;
 		}
 		return hex.toLowerCase();

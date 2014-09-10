@@ -24,6 +24,7 @@ public class VersionChecksumRegistryNMS extends VersionChecksumRegistry {
 		// todo: missing 1.1.2
 		super.submit("b1_0_2", "582fa899199e9eb5d739806db4f4f06655edff3a");
 		super.submit("a1_2_6", "4d1a4c2f1513b1c019b8ab1b720b8881caccd0d4");
+		super.submit("a1_1_2_1", "007da998189756f77260d68a0f421947c8b17b42");
 	}
 
 }

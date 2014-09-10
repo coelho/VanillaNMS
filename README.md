@@ -37,3 +37,4 @@ If you are a developer, the output jar that you will build against will be "plug
 * Minecraft Server Beta 1.2.2: 4f2a8d6035dd8bde767b91613cd9ea03c65b465a
 * Minecraft Server Beta 1.0.2: 582fa899199e9eb5d739806db4f4f06655edff3a
 * Minecraft Server Alpha 1.2.6: 4d1a4c2f1513b1c019b8ab1b720b8881caccd0d4
+* Minecraft Server Alpha 1.1.2.1: 007da998189756f77260d68a0f421947c8b17b42
