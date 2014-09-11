@@ -1,4 +1,4 @@
-package vanillanms.util;
+package ninja.coelho.vanillanms.util;
 
 import java.io.File;
 import java.io.FileInputStream;

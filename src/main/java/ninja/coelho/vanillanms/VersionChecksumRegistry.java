@@ -1,4 +1,4 @@
-package vanillanms;
+package ninja.coelho.vanillanms;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -6,7 +6,7 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
-import vanillanms.util.ChecksumUtils;
+import ninja.coelho.vanillanms.util.ChecksumUtils;
 
 public class VersionChecksumRegistry {
 

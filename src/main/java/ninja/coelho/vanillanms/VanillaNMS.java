@@ -1,13 +1,13 @@
-package vanillanms;
+package ninja.coelho.vanillanms;
 
 import java.io.File;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.logging.Level;
 
-import org.bukkit.plugin.java.JavaPlugin;
+import ninja.coelho.vanillanms.util.StringUtils;
 
-import vanillanms.util.StringUtils;
+import org.bukkit.plugin.java.JavaPlugin;
 
 public class VanillaNMS extends JavaPlugin {
 

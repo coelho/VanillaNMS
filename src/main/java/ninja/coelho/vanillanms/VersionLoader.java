@@ -1,11 +1,11 @@
-package vanillanms;
+package ninja.coelho.vanillanms;
 
 import java.io.File;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.net.URLClassLoader;
 
-import vanillanms.util.JarJarUtils;
+import ninja.coelho.vanillanms.util.JarJarUtils;
 
 public class VersionLoader {
 

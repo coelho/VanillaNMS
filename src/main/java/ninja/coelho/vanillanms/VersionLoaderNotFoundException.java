@@ -1,4 +1,4 @@
-package vanillanms;
+package ninja.coelho.vanillanms;
 
 import java.io.File;
 
