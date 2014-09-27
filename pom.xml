@@ -60,7 +60,7 @@
                             <relocations>
                                 <relocation>
                                     <pattern>com.tonicsystems</pattern>
-                                    <shadedPattern>vanillanms.libs.com.tonicsystems</shadedPattern>
+                                    <shadedPattern>ninja.coelho.vanillanms.libs.com.tonicsystems</shadedPattern>
                                 </relocation>
                             </relocations>
                         </configuration>
